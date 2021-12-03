@@ -9,6 +9,9 @@ app.use(express.static('./assets'));
 
 app.use(expressLayouts);
 
+//imported the mongoose database file
+const db = require('./config/mongoose');
+
 //extract style and script from sub pages into the layout.ejs page
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
