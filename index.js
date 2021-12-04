@@ -14,7 +14,8 @@ const db = require('./config/mongoose');
 const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
-const MongoStore = require('connect-mongo')(new session);
+//to store the session ----npm install connect-mongo
+const MongoStore = require('connect-mongo');
 
 
 app.use(express.urlencoded());
@@ -48,7 +49,9 @@ app.use(session({
     },
     store: new MongoStore(
         {
-           mongooseConnection: db,
+           //permanently store the current user session
+           mongoUrl: 'mongodb://localhost/codeial_development',
+           //mongooseConnection: db,
            autoRemove: 'disabled'
         },
         function(err){
