@@ -1,4 +1,3 @@
-// const user = require('../models/user');
 const User = require('../models/user');
 
 module.exports.profile = function(req,res){
@@ -91,10 +90,14 @@ module.exports.createSession = function(req,res){
            return res.redirect('back');
         }
     })
-    
-   
-   
-     
-    
-    
+}
+
+//To sign out of the profile page
+module.exports.deleteSession = function(req,res){
+
+    //delete the cookie by changing its value and immediately deleting it
+    res.cookie('user_id',-1,{
+        expires: new Date(1)
+    });
+    return res.redirect('/users/sign-in');
 }
