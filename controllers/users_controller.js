@@ -54,10 +54,8 @@ module.exports.create = function(req,res){
 }
 
 
-//to sign in and create a seesion for the user
+//to sign in and create a session for the user
 module.exports.createSession = function(req,res){
     
-    return res.render('user_sign_in',{
-        title: "Codeial | Sign In"
-    })
+    return res.redirect('/');
 }

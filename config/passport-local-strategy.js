@@ -29,9 +29,10 @@ passport.use(new LocalStrategy({
 
 
 //Serializing the user to decide which key is to be kept in the cookies
-//to set the user in the coookie
+//to set the user's id in the coookie
 passport.serializeUser(function(user,done){
-    //this will encrypt the id and set it in the cookie
+    //this will encrypt the id and store it in the session cookie
+    //encryption is done by the express session middleware in index.js
     done(null,user.id);
 });
 
