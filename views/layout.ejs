@@ -6,15 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title%></title>
     <link rel="stylesheet" href="/css/layout.css">
-     
-    <%- style %>  <!-- style of body will put up here automatically whenever the page rendered-->
+    <link rel="stylesheet" href="/css/footer.css">
+    <link rel="stylesheet" href="/css/header.css">
+
+
+
+    <%- style %>  
 </head>
 <body>
 
     <%- include('_header'); %> 
     
-    <!-- Contains the variable part -->
-    <%- body %> 
+
+    <main id="layout-main">
+        <%- body %> 
+
+    </main>
 
     <%- include('_footer'); %> 
     
