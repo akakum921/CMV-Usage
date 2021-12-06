@@ -8,7 +8,7 @@ const commentSchema = new mongoose.Schema({
     //comment belongs to a user
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'User'
     },
     post: {
         type: mongoose.Schema.Types.ObjectId,
@@ -17,7 +17,7 @@ const commentSchema = new mongoose.Schema({
 },{
   timestamps: true
    
-})
+});
 
 const Comment = mongoose.model('Comment',commentSchema);
 
