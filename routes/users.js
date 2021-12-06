@@ -6,8 +6,6 @@ const usersController = require('../controllers/users_controller');
 
 const passport = require('passport');
 
-// const postController = require('../controllers/post_controller');
-// router.get('/image',postController.image);
 
 router.get('/profile',passport.checkAuthentication,usersController.profile);
 

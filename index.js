@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const app = express();
 const port = 8000;
 
+
 const sassMiddleware = require('node-sass-middleware');
 
 app.use(sassMiddleware({
@@ -17,7 +18,6 @@ app.use(sassMiddleware({
 //set up the express-ejs-layouts
 const expressLayouts = require('express-ejs-layouts');
 app.use(express.static('./assets'));
-
 //imported the mongoose database file
 const db = require('./config/mongoose');
 
