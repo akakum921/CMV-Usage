@@ -1,4 +1,5 @@
 footer {
   height: 20px;
   background-color: lightgrey;
-  padding: 20px; }
+  padding: 20px;
+  width: 100%; }
