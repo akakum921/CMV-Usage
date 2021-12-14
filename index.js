@@ -28,8 +28,8 @@ app.use(sassMiddleware({
 app.use(express.urlencoded({extended: true})); 
 app.use(express.json());
 app.use(cookieParser());
-app.use(expressLayouts);
 app.use(express.static('./assets'));
+app.use(expressLayouts);
 
 //extract style and script from sub pages into the layout.ejs page
 app.set('layout extractStyles', true);
@@ -55,7 +55,7 @@ app.use(session({
         {
            //permanently store the current user session
            mongoUrl: 'mongodb://localhost/codeial_development',
-           //mongooseConnection: db,
+        //    mongooseConnection: db,
            autoRemove: 'disabled'
         },
         function(err){
