@@ -2,9 +2,20 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
 const port = 8000;
-
-
+//set up the express-ejs-layouts
+const expressLayouts = require('express-ejs-layouts');
+//imported the mongoose database file
+const db = require('./config/mongoose');
+//Used for session cookie & authentication password
+const session = require('express-session');
+const passport = require('passport');
+const passportLocal = require('./config/passport-local-strategy');
+//to store the session ----npm install connect-mongo
+const MongoStore = require('connect-mongo');
 const sassMiddleware = require('node-sass-middleware');
+//library for flash messages
+const flash = require('connect-flash');
+const customMware = require('./config/middleware');
 
 app.use(sassMiddleware({
     src: './assets/scss',
@@ -14,34 +25,15 @@ app.use(sassMiddleware({
     prefix: '/css'
  }));
 
-
-//set up the express-ejs-layouts
-const expressLayouts = require('express-ejs-layouts');
-app.use(express.static('./assets'));
-//imported the mongoose database file
-const db = require('./config/mongoose');
-
-//Used for session cookie & authentication password
-const session = require('express-session');
-const passport = require('passport');
-const passportLocal = require('./config/passport-local-strategy');
-//to store the session ----npm install connect-mongo
-const MongoStore = require('connect-mongo');
-
-
 app.use(express.urlencoded({extended: true})); 
 app.use(express.json());
 app.use(cookieParser());
-
-
 app.use(expressLayouts);
+app.use(express.static('./assets'));
 
 //extract style and script from sub pages into the layout.ejs page
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
-
-
-
 
 //set up the view engine
 app.set('view engine','ejs');
@@ -70,18 +62,16 @@ app.use(session({
             console.log(err || 'connect-mongodb setup is ok');
         }
     )
-
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
-
 app.use(passport.setAuthenticatedUser);
+app.use(flash());
+app.use(customMware.setFlash);
 
 //use express router
 app.use('/',require('./routes'));
-
-
 
 app.listen(port,function(err){
 
