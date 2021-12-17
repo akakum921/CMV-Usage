@@ -28,15 +28,13 @@
   <body>
     <%- include('_header'); %>
 
-    <!-- <% if(flash.success && flash.success.length > 0) { %>
-     <h5>
-         <%= flash.success %>
-     </h5>
-    <% } %> -->
+    <main id="layout-main">
+      <%- body %>
+    </main>
 
-    <main id="layout-main"><%- body %></main>
-
-    <%- include('_footer'); %> <%-script %>
+    <%- include('_footer'); %> 
+    
+    <%-script %>
 
     <script>
             <% if (flash.success && flash.success.length > 0) { %>
@@ -59,7 +57,7 @@
                    type: 'error',
                    layout: 'topRight',
                    timeout: 1500
-                }).show();
+                }).show(); 
 
             <% } %>
     </script>
