@@ -13,8 +13,8 @@
         success: function (data) {
           //   console.log(data);
           let newPost = newPostDom(data.data.post);
-          $(`#posts-list-container>ul`).prepend(newPost);
-          deletePost($(" .delete-post-button", newPost));
+          $('#posts-list-container > ul').prepend(newPost);
+          deletePost($(' .delete-post-button', newPost));
 
           // call the create comment class
           new PostComments(data.data.post._id);
