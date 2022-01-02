@@ -10,7 +10,6 @@ passport.use(new googleStrategy({
     clientID: "693468132939-mbg8sauf0hifni1h7sci6bd67h95iqhp.apps.googleusercontent.com",
     clientSecret: "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",
     callbackURL: "http://localhost:8000/users/auth/google/callback",
-    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, profile, done){
     // find a user
@@ -19,7 +18,7 @@ passport.use(new googleStrategy({
             console.log("Error in google strategy-passport", err); 
             return; 
         }
-        // console.log(accessToken);
+        console.log(accessToken);
         console.log(profile);
 
         if(user) {
