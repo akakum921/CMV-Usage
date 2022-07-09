@@ -1,0 +1,25 @@
+form {
+  width: 20vw;
+  margin: auto;
+  padding: 25px 10px 5px 10px;
+  border: 1px solid chartreuse;
+  border-radius: 10px; }
+  form input {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 10px;
+    width: 12rem;
+    border-radius: 5px;
+    border: 1px solid gray; }
+  form #submit-button {
+    padding: 7px;
+    font-weight: bold;
+    width: 5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #d64545;
+    color: #c43030;
+    background-color: whitesmoke; }
+  form #submit-button:hover {
+    background-color: #d64545;
+    color: white; }
